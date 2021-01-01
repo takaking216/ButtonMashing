@@ -4,8 +4,9 @@ plugins {
 }
 
 apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin:'kotlin-kapt'
 
-android {
+        android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
