@@ -27,7 +27,7 @@ class TitleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.startButton.setOnClickListener {
-            Log.d("click", "Clickされた")
+            Log.d("click", "Clickされたよ")
         }
     }
 
