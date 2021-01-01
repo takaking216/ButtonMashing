@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.util.Log
+import androidx.navigation.fragment.findNavController
 import com.example.buttonmashing.databinding.FragmentTitleBinding
 
 
@@ -26,8 +27,10 @@ class TitleFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        ボタンクリック処理
         binding.startButton.setOnClickListener {
-            Log.d("click", "Clickされた")
+            findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
     }
 
