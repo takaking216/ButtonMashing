@@ -1,4 +1,4 @@
-package com.example.buttonmashing.ViewModel
+package com.example.buttonmashing
 
 import androidx.lifecycle.MutableLiveData
 
