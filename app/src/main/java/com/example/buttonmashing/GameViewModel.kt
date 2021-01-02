@@ -8,6 +8,5 @@ class GameViewModel {
 
     fun onClick() {
         count.value = (count.value ?: 0) + 1
-        countText.value = "${count.value}回"
     }
 }
