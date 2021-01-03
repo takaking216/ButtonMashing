@@ -30,4 +30,9 @@ class GameFragment : Fragment() {
         binding.viewModel = gameViewModel
         binding.lifecycleOwner = viewLifecycleOwner
     }
+
+    override fun onStart() {
+        super.onStart()
+        gameViewModel.start()
+    }
 }
