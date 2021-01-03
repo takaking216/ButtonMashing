@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.buttonmashing.databinding.FragmentGameBinding
 import java.lang.RuntimeException
 
@@ -33,6 +34,13 @@ class GameFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        gameViewModel.start()
+        gameViewModel.start {
+            findNavController().navigate(
+                R.id.action_gameFragment_to_resultFragment,
+                Bundle().apply {
+                    putInt("count", it)
+                }
+            )
+        }
     }
 }

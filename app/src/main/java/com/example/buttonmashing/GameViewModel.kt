@@ -7,6 +7,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
 class GameViewModel: ViewModel() {
@@ -27,9 +28,11 @@ class GameViewModel: ViewModel() {
         }
     }
 
-    fun start() {
+    fun start(onEnd: (Int) -> Unit) {
         viewModelScope.launch {
-            timer(16, 10_000).collect {
+            timer(16, 10_000).onCompletion {
+                onEnd(count.value ?: 0)
+            }.collect {
                 val second = it / 1000
                 val millSecond = it % 1000 / 10
                 time.value = "$second.$millSecond"
